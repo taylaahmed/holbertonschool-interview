@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module containing a function to create Pascal's triangle."""
+
 
 def pascal_triangle(n):
     """Creating pascal triangle"""
