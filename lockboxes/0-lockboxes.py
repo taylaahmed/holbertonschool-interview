@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+"""Locked Boxes Task"""
+
 
 def canUnlockAll(boxes):
+    """Module to unlock boxes"""
 
     visited = set([0])
 
