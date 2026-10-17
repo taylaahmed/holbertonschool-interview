@@ -1,29 +1,19 @@
 #!/usr/bin/python3
-"""Minimum Operations Question"""
+"""Calculate the minimum number of operations to reach n H characters."""
 
 
 def minOperations(n):
-    """finding the minimum operation to get n"""
-
-    cache = {}
-
-    def helper(count, paste):
-        if count == n:
-            return 0
-        if count > n:
-            return 1000
-        if (count, paste) in cache:
-            return cache[(count, paste)]
-
-        # paste
-        res1 = 1 + helper(count + paste, paste)
-        # copy & paste
-        res2 = 2 + helper(count + count, count)
-        cache[(count, paste)] = min(res1, res2)
-
-        return cache[(count, paste)]
-
-    if n == 1:
+    """Return the minimum operations needed to reach n characters."""
+    if not isinstance(n, int) or isinstance(n, bool) or n <= 1:
         return 0
 
-    return 1 + helper(1, 1)
+    operations = 0
+    divisor = 2
+
+    while n > 1:
+        while n % divisor == 0:
+            operations += divisor
+            n //= divisor
+        divisor += 1
+
+    return operations
