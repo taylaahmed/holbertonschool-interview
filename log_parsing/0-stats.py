@@ -42,8 +42,8 @@ def main():
         print_stats(total_size, counts)
         raise
 
-    # Not strictly required, but nothing is lost if input ends off a multiple of 10
-    # (the checker usually expects output only every 10 lines and on CTRL + C).
+    if line_count % 10 != 0:
+        print_stats(total_size, counts)
 
 
 if __name__ == "__main__":
